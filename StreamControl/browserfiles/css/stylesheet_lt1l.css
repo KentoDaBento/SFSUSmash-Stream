@@ -1,0 +1,33 @@
+body {
+	margin:0px;
+	background-color: rgba(0, 0, 0, 0);
+	font-family: 'Impact';
+	color:#FFFFFF;
+}
+
+#board {
+	position:absolute;
+	top:0px;
+	left:-1920px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images/lt1l.png);
+}
+
+#mTextLT1 {
+	color: #FFF;
+	overflow:hidden;
+	position:absolute;
+	left:210px;
+	top:910px;
+	height:140px;
+	width:1500px;
+	font-size:75px;
+	font-family: 'Impact';
+	text-align:center;
+	text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000; 
+}

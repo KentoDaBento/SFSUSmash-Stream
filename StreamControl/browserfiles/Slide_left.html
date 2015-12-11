@@ -1,0 +1,205 @@
+<html>
+<head>
+	<link rel="stylesheet" href="css/stylesheet_slide_left.css" type="text/css" charset="utf-8">
+	<script src="js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jstween-1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/countries.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+			
+			var timestampOld;
+			var timestamp;
+			var mTextSLL1;
+			var mTextSLL2;
+			
+			var xmlDoc;
+		
+			var xhr = new XMLHttpRequest();
+		
+			var animating = false;
+			var doUpdate = false;
+			
+			function init() {
+
+				xhr.overrideMimeType('text/xml');
+				
+				var timeout = this.window.setInterval(function() {
+					pollHandler();
+				}, 250);				
+			}
+			
+			function pollHandler()
+			{
+			  loadData();
+			  if (timestamp != timestampOld) {
+				  doUpdate = true;
+			  }
+			  if (!animating && doUpdate) {
+				  updateBoard();
+			  }
+			}
+			
+			function play(){
+				movein();				
+			}
+			
+			function movein(){
+				$('#board').tween({
+				   left:{
+					  start: '-500',
+					  stop: '0',
+					  units: 'px',
+					  time: 0,
+					  duration: 2,
+					  effect:'easeOut'
+				   },
+				   top:{
+					  start: '0',
+					  stop: '1080',
+					  units: 'px',
+					  time: 10,
+					  duration: 1,
+					  effect:'easeOut'	   
+   					},
+					onStop: function() {
+					  moveout();
+					}
+				});
+				
+				$.play(); 
+			}
+
+			function moveout(){
+				$('#board').tween({
+				   left:{
+					  start: '0',
+					  stop: '-1920',
+					  units: 'px',
+					  time: 0,
+					  duration: 0.1,
+					  effect:'easeOut'
+				   },
+				   top:{
+					  start: '500',
+					  stop: '0',
+					  units: 'px',
+					  time: 0.2,
+					  duration: 0.1,
+					  effect:'easeOut'	   
+   					}
+				});
+				
+				$.play(); 
+			}
+			
+
+			function loadData() {
+				xhr.open('GET', 'streamcontrol.xml');
+				xhr.send();
+				xhr.onreadystatechange = function(){
+						xmlDoc = xhr.responseXML;
+						
+						mTextSLL1 = getValueFromTag(xmlDoc,'mTextSLL1');
+						mTextSLL2 = getValueFromTag(xmlDoc,'mTextSLL2');
+						timestampOld = timestamp;
+						timestamp = getValueFromTag(xmlDoc,'timestamp');
+						
+				}
+			}
+			
+			function updateBoard() {
+				play();
+				if ($('#mTextSLL1').html() != mTextSLL1) {
+					animating = true;
+					$('#mTextSLL1').tween({
+						opacity: {
+						  start: 100,
+						  stop: 0,
+						  time: 0,
+						  duration: 0.5,
+						  effect: 'easeIn'
+						},
+						onStop: function(){
+							$('#mTextSLL1').html(mTextSLL1);
+						}
+					});
+					
+					$('#mTextSLL1').tween({
+						opacity: {
+						  start: 0,
+						  stop: 100,
+						  time: 0.5,
+						  duration: 0.5,
+						  effect: 'easeOut'
+						},
+						onStop: function(){
+							animating = false;
+						}
+					});
+				}
+				
+				if ($('#mTextSLL2').html() != mTextSLL2) {
+					animating = true;
+					$('#mTextSLL2').tween({
+						opacity: {
+						  start: 100,
+						  stop: 0,
+						  time: 0,
+						  duration: 0.5,
+						  effect: 'easeIn'
+						},
+						onStop: function(){
+							$('#mTextSLL2').html(mTextSLL2);
+						}
+					});
+					
+					$('#mTextSLL2').tween({
+						opacity: {
+						  start: 0,
+						  stop: 100,
+						  time: 0.5,
+						  duration: 0.5,
+						  effect: 'easeOut'
+						},
+						onStop: function(){
+							animating = false;
+						}
+					});
+				}
+				$.play();
+				
+				doUpdate = false;
+			}
+			
+			function getValueFromTag (xmlDoc,tag) {
+				if (xmlDoc.getElementsByTagName(tag).length != 0 ) {
+					if (xmlDoc.getElementsByTagName(tag)[0].childNodes.length == 0) {
+							return '';
+						} else {
+							return xmlDoc.getElementsByTagName(tag)[0].childNodes[0].nodeValue;
+					}
+				} else {
+					return '';
+				}
+			}
+			
+			function getCountry (country) {
+			
+			var count = iso.findCountryByName(country);
+			if (!count)
+			count = iso.findCountryByCode(country);
+			if (!count) {
+			var count = new Array();
+			count['value'] = "unknown";
+			}
+			
+			return count['value'];
+		}
+	</script>
+</head>
+<body onLoad="init()">
+	<div id="board">
+		<div id="mTextSLL1"></div>
+        <div id="mTextSLL2"></div>
+	</div>
+</body>
+</html>

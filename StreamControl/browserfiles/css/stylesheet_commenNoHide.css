@@ -1,0 +1,39 @@
+body {
+	margin:0px;
+	background-color: rgba(0, 0, 0, 0);
+	font-family: 'SansationRegular';
+	color:#FFFFFF;
+}
+
+#board {
+	position:absolute;
+	top:-500px;
+	left:0px;
+	width:500px;
+	height:500px;
+	background-image:url(../images/commentary.png);
+}
+
+#cTitle3 {
+	color: #000;
+	position: absolute;
+	left: 19px;
+	top: 20px;
+	width: 466px;
+	height: 107px;
+	font-size: 25px;
+	font-family: 'Impact';
+	text-align: left;
+	overflow: hidden;
+}
+#cTitle4 {
+	color: #000;
+	overflow:hidden;
+	position:absolute;
+	left:17px;
+	top:129px;
+	width:466px;
+	font-size:22px;
+	font-family: 'Impact';
+	text-align:right;
+}

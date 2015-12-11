@@ -1,0 +1,50 @@
+body {
+	margin:0px;
+	background-color: rgba(0, 0, 0, 0);
+	font-family: 'Impact';
+	color:#FFFFFF;
+}
+
+#board {
+	position:absolute;
+	top:0px;
+	left:-1920px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images/lt2l.png);
+}
+
+#mTextLT21 {
+	color: #FFF;
+	position:absolute;
+	left:200px;
+	top:750px;
+	width:1200px;
+	height:130px;
+	font-size:95px;
+	font-family: 'Impact';
+	text-align:left;
+	overflow:hidden;
+	text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000; 
+}
+#mTextLT22 {
+	color: #FFF;
+	overflow:hidden;
+	position:absolute;
+	left:200px;
+	top:905px;
+	height:140px;
+	width:1200px;
+	font-size:55px;
+	font-family: 'Impact';
+	text-align:right;
+	text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000; 
+}

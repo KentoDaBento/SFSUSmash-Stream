@@ -1,0 +1,59 @@
+<!DOCTYPE StreamControlLayout>
+<layout width="400" height="300" tabbed="1">
+ <tab name="Commentator">
+  <label x="10" y="14" width="300" height="16">This Box hides after 15Sec.</label>
+  <line x="10" y="34" width="370" height="3" />
+  <label x="10" y="44" width="66" height="13">Description</label>
+  <label x="10" y="74" width="66" height="13">Commentator</label>
+  <lineEdit id="cTitle1" x="80" y="40" width="301" height="20" />
+  <lineEdit id="cTitle2" x="80" y="70" width="301" height="20" />
+  <label x="10" y="114" width="300" height="16">This Box stays on the Screen</label>
+  <line x="10" y="134" width="370" height="3" />
+  <label x="10" y="144" width="66" height="13">DesNoHide</label>
+  <label x="10" y="174" width="66" height="13">ComNoHide</label>
+  <lineEdit id="cTitle3" x="80" y="140" width="301" height="20" />
+  <lineEdit id="cTitle4" x="80" y="170" width="301" height="20" />
+ </tab>
+ <tab name="Lower Thirds">
+  <label x="10" y="14" width="300" height="16">1 Line Lower Third</label>
+  <line x="10" y="34" width="370" height="3" />
+  <label x="10" y="44" width="66" height="13">LT1</label>
+  <lineEdit id="mTextLT1" x="80" y="40" width="301" height="20" />
+  <label x="10" y="74" width="300" height="16">2 Line Lower Third</label>
+  <line x="10" y="94" width="370" height="3" />
+  <label x="10" y="104" width="66" height="13">LT 2-1</label>
+  <label x="10" y="134" width="66" height="13">LT 2-2</label>
+  <lineEdit id="mTextLT21" x="80" y="100" width="301" height="20" />
+  <lineEdit id="mTextLT22" x="80" y="130" width="301" height="20" />
+ </tab>
+ <tab name="Scoreboard">
+  <lineEdit id="pName1" x="10" y="10" width="160" height="20" dataSet="players.csv" >Player 1</lineEdit>
+  <lineEdit id="pCountry1" x="180" y="10" width="50" height="20" dataSet="players.csv" dataField="2" master="pName1" >Country</lineEdit>
+  <lineEdit id="pName2" x="10" y="40" width="160" height="20" dataSet="players.csv" >Player 2</lineEdit>
+  <lineEdit id="pCountry2" x="180" y="40" width="50" height="20" dataSet="players.csv" dataField="2" master="pName2" >Country</lineEdit>
+  <spinBox id="pScore1" x="240" y="10" width="40" height="22" maximum="999" />
+  <spinBox id="pScore2" x="240" y="40" width="40" height="22" maximum="999" />
+  <button type="reset" x="290" y="10" width="40" height="23" tooltip="Clear Player 1 fields" id="clear1" reset="pName1,pCountry1">Clear</button>
+  <button type="reset" x="330" y="10" width="40" height="23" tooltip="Reset the Scores" id="reset" reset="pScore1,pScore2">Reset</button>
+  <button type="reset" x="290" y="40" width="40" height="23" tooltip="Clear Player 2 fields" id="clear2" reset="pName2,pCountry2">Clear</button>
+  <button type="swap" x="330" y="40" width="40" height="23" tooltip="Swap the Scores" id="swap" swapSet1="pName1,pScore1,pCountry1" swapSet2="pName2,pScore2,pCountry2">Swap</button>
+  <label x="10" y="74" width="46" height="13">Contest</label>
+  <label x="10" y="104" width="46" height="13">Round</label>
+  <lineEdit id="mText3" x="60" y="70" width="321" height="20" />
+  <lineEdit id="mText4" x="60" y="100" width="321" height="20" />
+ </tab>  
+ <tab name="Slider">
+  <label x="10" y="14" width="300" height="16">Slider Right</label>
+  <line x="10" y="34" width="370" height="3" />
+  <label x="10" y="44" width="66" height="13">SR 1</label>
+  <label x="10" y="74" width="66" height="13">SR 2</label>
+  <lineEdit id="mTextSLR1" x="80" y="40" width="301" height="20" />
+  <lineEdit id="mTextSLR2" x="80" y="70" width="301" height="20" />
+  <label x="10" y="114" width="300" height="16">Slider Left</label>
+  <line x="10" y="134" width="370" height="3" />
+  <label x="10" y="144" width="66" height="13">SL 1</label>
+  <label x="10" y="174" width="66" height="13">SL 2</label>
+  <lineEdit id="mTextSLL1" x="80" y="140" width="301" height="20" />
+  <lineEdit id="mTextSLL2" x="80" y="170" width="301" height="20" />
+ </tab>
+</layout>

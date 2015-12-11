@@ -1,0 +1,10 @@
+<!DOCTYPE StreamControl>
+<settings>
+ <xsplitPath><![CDATA[Z:\Users\khiroi\Desktop\Desktop\StreamControl\browserfiles\]]></xsplitPath>
+ <layoutPath><![CDATA[Z:\Users\khiroi\Desktop\Desktop\StreamControl\browserfiles_layout.xml]]></layoutPath>
+ <useCDATA>0</useCDATA>
+ <games>
+  <game><![CDATA[Test]]></game>
+  <game><![CDATA[Super Smash Bros]]></game>
+ </games>
+</settings>

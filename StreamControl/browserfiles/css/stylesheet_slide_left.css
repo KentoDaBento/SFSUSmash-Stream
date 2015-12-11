@@ -1,0 +1,41 @@
+body {
+	margin:0px;
+	background-color: rgba(0, 0, 0, 0);
+	font-family: 'Impact';
+	color:#FFFFFF;
+}
+
+#board {
+	position:absolute;
+	top:0px;
+	left:-500px;
+	width:500px;
+	height:500px;
+	background-image:url(../images/slide.png);
+}
+
+#mTextSLL1 {
+	color: #000;
+	overflow:hidden;
+	position:absolute;
+	left:20px;
+	top:25px;
+	height:40px;
+	width:300px;
+	font-size:25px;
+	font-family: 'Impact';
+	text-align:left;
+}
+
+#mTextSLL2 {
+	color: #000;
+	overflow:hidden;
+	position:absolute;
+	left:20px;
+	top:64px;
+	height:410px;
+	width:290px;
+	font-size:25px;
+	font-family: 'Impact';
+	text-align: left;
+}

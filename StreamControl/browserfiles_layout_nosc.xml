@@ -1,0 +1,43 @@
+<!DOCTYPE StreamControlLayout>
+<layout width="400" height="300" tabbed="1">
+ <tab name="Commentator">
+  <label x="10" y="14" width="300" height="16">This Box hides after 15Sec.</label>
+  <line x="10" y="34" width="370" height="3" />
+  <label x="10" y="44" width="66" height="13">Description</label>
+  <label x="10" y="74" width="66" height="13">Commentator</label>
+  <lineEdit id="cTitle1" x="80" y="40" width="301" height="20" />
+  <lineEdit id="cTitle2" x="80" y="70" width="301" height="20" />
+  <label x="10" y="114" width="300" height="16">This Box stays on the Screen</label>
+  <line x="10" y="134" width="370" height="3" />
+  <label x="10" y="144" width="66" height="13">DesNoHide</label>
+  <label x="10" y="174" width="66" height="13">ComNoHide</label>
+  <lineEdit id="cTitle3" x="80" y="140" width="301" height="20" />
+  <lineEdit id="cTitle4" x="80" y="170" width="301" height="20" />
+ </tab>
+ <tab name="Lower Thirds">
+  <label x="10" y="14" width="300" height="16">1 Line Lower Third</label>
+  <line x="10" y="34" width="370" height="3" />
+  <label x="10" y="44" width="66" height="13">LT1</label>
+  <lineEdit id="mTextLT1" x="80" y="40" width="301" height="20" />
+  <label x="10" y="74" width="300" height="16">2 Line Lower Third</label>
+  <line x="10" y="94" width="370" height="3" />
+  <label x="10" y="104" width="66" height="13">LT 2-1</label>
+  <label x="10" y="134" width="66" height="13">LT 2-2</label>
+  <lineEdit id="mTextLT21" x="80" y="100" width="301" height="20" />
+  <lineEdit id="mTextLT22" x="80" y="130" width="301" height="20" />
+ </tab>
+ <tab name="Slider">
+  <label x="10" y="14" width="300" height="16">Slider Right</label>
+  <line x="10" y="34" width="370" height="3" />
+  <label x="10" y="44" width="66" height="13">SR 1</label>
+  <label x="10" y="74" width="66" height="13">SR 2</label>
+  <lineEdit id="mTextSLR1" x="80" y="40" width="301" height="20" />
+  <lineEdit id="mTextSLR2" x="80" y="70" width="301" height="20" />
+  <label x="10" y="114" width="300" height="16">Slider Left</label>
+  <line x="10" y="134" width="370" height="3" />
+  <label x="10" y="144" width="66" height="13">SL 1</label>
+  <label x="10" y="174" width="66" height="13">SL 2</label>
+  <lineEdit id="mTextSLL1" x="80" y="140" width="301" height="20" />
+  <lineEdit id="mTextSLL2" x="80" y="170" width="301" height="20" />
+ </tab>
+</layout>

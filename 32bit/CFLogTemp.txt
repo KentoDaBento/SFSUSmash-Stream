@@ -1,0 +1,14 @@
+-----------------------------------------
+CoreFoundation Version 476.17
+Getting EXE file path
+ProgName: <C:\Users\Kent Hiroi\Desktop\32bit\OBS.exe>
+-----------------------------------------
+CoreFoundation Version 476.17
+-----------------------------------------
+CoreFoundation Version 476.17
+Getting EXE file path
+ProgName: <C:\Users\Kent Hiroi\Desktop\32bit\OBS.exe>
+-----------------------------------------
+CoreFoundation Version 476.17
+Getting EXE file path
+ProgName: <C:\Users\Kent Hiroi\Desktop\32bit\OBS.exe>

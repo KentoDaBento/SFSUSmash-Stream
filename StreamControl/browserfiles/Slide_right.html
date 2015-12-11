@@ -1,0 +1,206 @@
+<html>
+<head>
+	<link rel="stylesheet" href="css/stylesheet_slide_right.css" type="text/css" charset="utf-8">
+	<script src="js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jstween-1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/countries.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+			
+			var timestampOld;
+			var timestamp;
+			var mTextSLR1;
+			var mTextSLR2;
+			
+			var xmlDoc;
+		
+			var xhr = new XMLHttpRequest();
+		
+			var animating = false;
+			var doUpdate = false;
+			
+			function init() {
+
+				xhr.overrideMimeType('text/xml');
+				
+				var timeout = this.window.setInterval(function() {
+					pollHandler();
+				}, 250);
+			}
+			
+			function play(){
+				movein();				
+			}
+			
+			function pollHandler()
+			{
+			  loadData();
+			  if (timestamp != timestampOld) {
+				  doUpdate = true;
+			  }
+			  if (!animating && doUpdate) {
+				  
+				  updateBoard();
+
+			  }
+			}
+			
+			function movein(){
+				$('#board').tween({
+				   left:{
+					  start: '500',
+					  stop: '0',
+					  units: 'px',
+					  time: 0,
+					  duration: 2,
+					  effect:'easeOut'
+				   },
+				   top:{
+					  start: '0',
+					  stop: '1080',
+					  units: 'px',
+					  time: 10,
+					  duration: 1,
+					  effect:'easeOut'	   
+   					},
+					onStop: function() {
+					  moveout();
+					}
+				});
+				
+				$.play(); 
+			}
+			
+			function moveout(){
+				$('#board').tween({
+				   left:{
+					  start: '0',
+					  stop: '500',
+					  units: 'px',
+					  time: 0,
+					  duration: 0.1,
+					  effect:'easeOut'
+				   },
+				   top:{
+					  start: '1080',
+					  stop: '0',
+					  units: 'px',
+					  time: 0.2,
+					  duration: 0.1,
+					  effect:'easeOut'	   
+   					}
+				});
+				
+				$.play(); 
+			}
+
+			function loadData() {
+				xhr.open('GET', 'streamcontrol.xml');
+				xhr.send();
+				xhr.onreadystatechange = function(){
+						xmlDoc = xhr.responseXML;
+						
+						mTextSLR1 = getValueFromTag(xmlDoc,'mTextSLR1');
+						mTextSLR2 = getValueFromTag(xmlDoc,'mTextSLR2');
+						timestampOld = timestamp;
+						timestamp = getValueFromTag(xmlDoc,'timestamp');
+						
+				}
+			}
+			
+			function updateBoard() {
+				play();
+				if ($('#mTextSLR1').html() != mTextSLR1) {
+					animating = true;
+					$('#mTextSLR1').tween({
+						opacity: {
+						  start: 100,
+						  stop: 0,
+						  time: 0,
+						  duration: 0.5,
+						  effect: 'easeIn'
+						},
+						onStop: function(){
+							$('#mTextSLR1').html(mTextSLR1);
+						}
+					});
+					
+					$('#mTextSLR1').tween({
+						opacity: {
+						  start: 0,
+						  stop: 100,
+						  time: 0.5,
+						  duration: 0.5,
+						  effect: 'easeOut'
+						},
+						onStop: function(){
+							animating = false;
+						}
+					});
+				}
+				
+				if ($('#mTextSLR2').html() != mTextSLR2) {
+					animating = true;
+					$('#mTextSLR2').tween({
+						opacity: {
+						  start: 100,
+						  stop: 0,
+						  time: 0,
+						  duration: 0.5,
+						  effect: 'easeIn'
+						},
+						onStop: function(){
+							$('#mTextSLR2').html(mTextSLR2);
+						}
+					});
+					
+					$('#mTextSLR2').tween({
+						opacity: {
+						  start: 0,
+						  stop: 100,
+						  time: 0.5,
+						  duration: 0.5,
+						  effect: 'easeOut'
+						},
+						onStop: function(){
+							animating = false;
+						}
+					});
+				}
+				$.play();
+				
+				doUpdate = false;
+			}
+			
+			function getValueFromTag (xmlDoc,tag) {
+				if (xmlDoc.getElementsByTagName(tag).length != 0 ) {
+					if (xmlDoc.getElementsByTagName(tag)[0].childNodes.length == 0) {
+							return '';
+						} else {
+							return xmlDoc.getElementsByTagName(tag)[0].childNodes[0].nodeValue;
+					}
+				} else {
+					return '';
+				}
+			}
+			
+			function getCountry (country) {
+			
+			var count = iso.findCountryByName(country);
+			if (!count)
+			count = iso.findCountryByCode(country);
+			if (!count) {
+			var count = new Array();
+			count['value'] = "unknown";
+			}
+			
+			return count['value'];
+		}
+	</script>
+</head>
+<body onLoad="init()">
+	<div id="board">
+		<div id="mTextSLR1"></div>
+        <div id="mTextSLR2"></div>
+	</div>
+</body>
+</html>
